@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Expense } from '../../expense/entities/expense.entity';
 
-@Entity('payment-types')
+@Entity('payment_types')
 export class PaymentType {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
@@ -13,4 +14,7 @@ export class PaymentType {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => Expense, (expense) => expense.paymentType)
+  expenses: Expense[];
 }

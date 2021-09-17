@@ -8,6 +8,7 @@ import { ExpenseModule } from './expense/expense.module';
 import { Expense } from './expense/entities/expense.entity';
 import { ConfigModule } from '@nestjs/config';
 import { PaymentTypeModule } from './payment-type/payment-type.module';
+import { PaymentType } from './payment-type/entities/paymentType.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { PaymentTypeModule } from './payment-type/payment-type.module';
       username: 'postgres',
       password: 'root',
       database: 'expenses_dev',
-      entities: [Category, Expense],
+      entities: [Category, Expense, PaymentType],
       synchronize: false,
       retryDelay: 3000,
       retryAttempts: 5,
