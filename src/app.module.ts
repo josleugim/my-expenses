@@ -7,6 +7,7 @@ import { Category } from './category/entities/category.entity';
 import { ExpenseModule } from './expense/expense.module';
 import { Expense } from './expense/entities/expense.entity';
 import { ConfigModule } from '@nestjs/config';
+import { PaymentTypeModule } from './payment-type/payment-type.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     CategoryModule,
     ExpenseModule,
+    PaymentTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
