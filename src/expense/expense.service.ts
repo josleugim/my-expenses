@@ -3,9 +3,8 @@ import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Expense } from './entities/expense.entity';
-import { Raw, Repository } from "typeorm";
+import { Raw, Repository } from 'typeorm';
 import { FiltersExpenseDto } from './dto/filters-expense.dto';
-import { Category } from "../category/entities/category.entity";
 
 @Injectable()
 export class ExpenseService {
@@ -32,7 +31,7 @@ export class ExpenseService {
     }
     return this.expenseRepository.find({
       cache: true,
-      relations: ['category'],
+      relations: ['category', 'paymentType'],
       where: query,
       order: {
         id: 'DESC',
@@ -47,8 +46,15 @@ export class ExpenseService {
     });
   }
 
-  update(id: number, updateExpenseDto: UpdateExpenseDto) {
-    return `This action updates a #${id} expense`;
+  async update(id: number, updateExpenseDto: UpdateExpenseDto) {
+    const expense = await this.expenseRepository.findOne({
+      where: { id },
+    });
+
+    return this.expenseRepository.save({
+      ...expense,
+      ...updateExpenseDto,
+    });
   }
 
   remove(id: number) {

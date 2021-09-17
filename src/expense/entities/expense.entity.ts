@@ -25,6 +25,9 @@ export class Expense {
   @ManyToOne(() => Category, (category) => category.expenses)
   category: Category;
 
+  @Column()
+  paymentTypeId: string;
+
   @ManyToOne(() => PaymentType, (paymentType) => paymentType.expenses)
   paymentType: PaymentType;
 }

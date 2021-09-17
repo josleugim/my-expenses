@@ -3,4 +3,5 @@ export class CreateExpenseDto {
   amount: number;
   isActive?: boolean;
   categoryId: number;
+  paymentTypeId: string;
 }
