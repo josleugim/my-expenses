@@ -5,12 +5,14 @@ import {
   Body,
   Patch,
   Param,
-  Delete, Query
-} from "@nestjs/common";
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { ExpenseService } from './expense.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { FiltersExpenseDto } from './dto/filters-expense.dto';
+import { CreateTermDto } from './dto/create-term.dto';
 
 @Controller('expense')
 export class ExpenseController {
@@ -39,5 +41,10 @@ export class ExpenseController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.expenseService.remove(+id);
+  }
+
+  @Post('term')
+  createTerm(@Body() createTermDto: CreateTermDto) {
+    return this.expenseService.createTerm(createTermDto);
   }
 }

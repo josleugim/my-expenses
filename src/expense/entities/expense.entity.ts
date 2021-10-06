@@ -19,6 +19,9 @@ export class Expense {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column({ type: 'timestamptz' })
+  payed_at: string;
+
   @Column()
   categoryId: number;
 

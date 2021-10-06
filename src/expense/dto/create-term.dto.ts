@@ -1,8 +1,7 @@
-export class CreateExpenseDto {
+export class CreateTermDto {
   entry: string;
   amount: number;
-  isActive?: boolean;
   categoryId: number;
   paymentTypeId: string;
-  payed_at: any;
+  numberOfTerms: number;
 }
