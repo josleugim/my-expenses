@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { StatisticService } from './statistic.service';
 
 @Controller('statistic')
-export class StatisticController {}
+export class StatisticController {
+  constructor(private readonly statisticService: StatisticService) {}
+
+  @Get()
+  findAll() {
+    return this.statisticService.getStatistics();
+  }
+}

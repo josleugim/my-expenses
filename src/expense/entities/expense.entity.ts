@@ -28,16 +28,17 @@ export class Expense {
   @Column({ type: 'timestamptz' })
   payed_at: string;
 
-  @Column()
-  category_id: number;
+  @Column({ name: 'category_id' })
+  categoryId: number;
 
   @ManyToOne(() => Category, (category) => category.expenses)
   @JoinColumn({ name: 'category_id' })
   category: Category;
 
-  @Column()
+  @Column({ name: 'payment_type_id' })
   paymentTypeId: string;
 
   @ManyToOne(() => PaymentType, (paymentType) => paymentType.expenses)
+  @JoinColumn({ name: 'payment_type_id' })
   paymentType: PaymentType;
 }

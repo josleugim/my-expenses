@@ -1,7 +1,7 @@
 export class CreateTermDto {
   entry: string;
   amount: number;
-  categoryId: number;
+  category_id: number;
   paymentTypeId: string;
   numberOfTerms: number;
 }

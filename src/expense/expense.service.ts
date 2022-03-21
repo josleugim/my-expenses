@@ -22,8 +22,8 @@ export class ExpenseService {
 
   findAll(filters: FiltersExpenseDto) {
     const query: any = {};
-    if (filters.category_id) {
-      query.category_id = filters.category_id;
+    if (filters.categoryId) {
+      query.categoryId = filters.categoryId;
     }
 
     if (filters.fromDate && filters.toDate) {
