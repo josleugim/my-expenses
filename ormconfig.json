@@ -6,10 +6,10 @@
   "password": "root",
   "database": "expenses_dev",
   "entities": ["dist/**/*.entity{.ts,.js}"],
-  "migrations": ["migration/*.{ts,js}"],
+  "migrations": ["dist/migration/*.{ts,js}"],
   "cli": {
     "migrationsDir": "migration"
   },
-  "synchronize": true,
+  "synchronize": false,
   "migrationsRun": true
 }

@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Category } from '../../category/entities/category.entity';
 
 @Entity('expenses')
@@ -19,8 +25,9 @@ export class Expense {
   isActive: boolean;
 
   @Column()
-  categoryId: number;
+  category_id: number;
 
   @ManyToOne(() => Category, (category) => category.expenses)
+  @JoinColumn({ name: 'category_id' })
   category: Category;
 }

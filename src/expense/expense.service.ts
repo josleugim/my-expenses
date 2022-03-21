@@ -3,9 +3,8 @@ import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Expense } from './entities/expense.entity';
-import { Raw, Repository } from "typeorm";
+import { Raw, Repository } from 'typeorm';
 import { FiltersExpenseDto } from './dto/filters-expense.dto';
-import { Category } from "../category/entities/category.entity";
 
 @Injectable()
 export class ExpenseService {
@@ -20,8 +19,8 @@ export class ExpenseService {
 
   findAll(filters: FiltersExpenseDto) {
     const query: any = {};
-    if (filters.categoryId) {
-      query.categoryId = filters.categoryId;
+    if (filters.category_id) {
+      query.category_id = filters.category_id;
     }
 
     if (filters.fromDate && filters.toDate) {

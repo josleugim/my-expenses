@@ -1,5 +1,5 @@
 export class FiltersExpenseDto {
-  categoryId?: number;
+  category_id?: number;
   fromDate?: string;
   toDate?: string;
 }

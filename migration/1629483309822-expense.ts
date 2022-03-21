@@ -40,5 +40,7 @@ export class expense1629483309822 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    return queryRunner.query(`DROP TABLE expenses`);
+  }
 }
