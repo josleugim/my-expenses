@@ -8,6 +8,8 @@ import { ExpenseModule } from './expense/expense.module';
 import { Expense } from './expense/entities/expense.entity';
 import { ConfigModule } from '@nestjs/config';
 import { StatisticModule } from './statistic/statistic.module';
+import { PaymentTypeModule } from './payment-type/payment-type.module';
+import { PaymentType } from './payment-type/entities/paymentType.entity';
 
 @Module({
   imports: [
@@ -19,7 +21,7 @@ import { StatisticModule } from './statistic/statistic.module';
       username: 'postgres',
       password: 'root',
       database: 'expenses_dev',
-      entities: [Category, Expense],
+      entities: [Category, Expense, PaymentType],
       synchronize: false,
       retryDelay: Number(process.env.PORT),
       retryAttempts: 5,
@@ -27,6 +29,7 @@ import { StatisticModule } from './statistic/statistic.module';
     CategoryModule,
     ExpenseModule,
     StatisticModule,
+    PaymentTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
